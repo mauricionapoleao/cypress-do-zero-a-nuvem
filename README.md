@@ -1,28 +1,23 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+Cypress, from zero to the nuvem
 
-👋 Seja bem-vindo(a)!
+Sample project 'Cypress, from zero to the nuvem' course of de Talking About Testins online school.
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+Pre-requirements
+It is required to have Node.js, git and npm installed to run this project.
 
-## O que você vai aprender?
+I used versions 2.55.0, v24.19.0 and 12.0.2 of git, Node.js and npm, respectively. I suggest you use the same or later versions.
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+Installation
+Run npm install (or npm i for the short version) to install the dev dependencies.
+Run npm install cypress@13.12.0 to install cypress
 
-## Vamos começar?
+Tests
+In this project, you can run the tests on a desktop or mobile viewport
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+Desktop
+Run npm test to run the test in headless mode on a desktop viewport.
+Run npm run cy:open to open the Cypress App on a desktop viewport.
 
-___
-
-Este é um curso da **Escola Talking About Testing**.
+Mobile
+Run npm test:mobile to run the test in headless mode on a mobile viewport.
+Run npm run cy:open:mobile to open the Cypress App on a mobile viewport.
