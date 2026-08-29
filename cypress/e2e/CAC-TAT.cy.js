@@ -180,7 +180,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
         .should(($input) => {
 // Executar o comando console.log() e rodar o cypress. Com o botao direito do mouse, clicar em inspecionar e ir na aba console para ver o resultado.
 // e verificar o caminho que vai estar o nome do arquivo que foi selecionado.          
-//          console.log($input) 
+//        console.log($input) 
           expect($input[0].files[0].name).to.equal('example.json')
         })  
     })
@@ -193,13 +193,11 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     
     it('acessa a página da política de privacidade removendo o target e então clicando no link', () => {
 // Deletando o atributo target="_blank" vai abrir o link na mesma aba
-// Foi usado o contains pois o cy.get('a') é muito genérico       
+// Foi usado o contains pois o cy.get('a') é muito genérico     
       cy.contains('a', 'Política de Privacidade').invoke('removeAttr', 'target')
         .click()
       cy.contains('h1', 'CAC TAT - Política de Privacidade').should('be.visible')
     })
-
-
     
 
 })
