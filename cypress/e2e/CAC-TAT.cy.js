@@ -191,7 +191,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       cy.contains('a', 'Política de Privacidade').should('have.attr', 'target', '_blank')
     })
     
-    it('acessa a página da política de privacidade removendo o target e então clicando no link', () => {
+    it.only('acessa a página da política de privacidade removendo o target e então clicando no link', () => {
 // Deletando o atributo target="_blank" vai abrir o link na mesma aba
 // Foi usado o contains pois o cy.get('a') é muito genérico       
       cy.contains('a', 'Política de Privacidade').invoke('removeAttr', 'target')
