@@ -245,5 +245,53 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       cy.contains('h1', 'CAC TAT - Política de Privacidade').should('be.visible')
     })
 
+    it('exibe e esconde as mensagens de sucesso e erro usando o .invoke', () => {
+      cy.get('.success')
+        .should('not.be.visible')
+        .invoke('show')
+        .should('be.visible')
+        .and('contain', 'Mensagem enviada com sucesso.')
+        .invoke('hide')
+        .should('not.be.visible')
+      cy.get('.error')
+        .should('not.be.visible')
+        .invoke('show')
+        .should('be.visible')
+        .and('contain', 'Valide os campos obrigatórios!')
+        .invoke('hide')
+        .should('not.be.visible')
+    })
 
+    it('preenche a area de texto usando o comando invoke', () => {
+      const longText = Cypress._.repeat('Obrigado', 20)  
+// o invoke nesse caso poem o texto de uma vez só, sem precisar digitar letra por letra, como o .type.      
+      cy.get('#open-text-area').invoke('val', longText).should('have.value', longText) 
+    })
+
+    it('utilizar request para fazer uma requisição HTTP', () => {
+//      cy.request('GET', 'https://cac-tat-v3.s3.eu-central-1.amazonaws.com/index.html')
+//        .then((response) => {
+//         expect(response.status).to.equal(200)
+//          expect(response.statusText).to.equal('OK')
+//         expect(response.body).to.include('CAC TAT')
+//        })
+
+      cy.request('https://cac-tat-v3.s3.eu-central-1.amazonaws.com/index.html')
+        .as('retornoRequisicao')
+        .its('status')
+        .should('equal', 200)
+      cy.get('@retornoRequisicao')
+        .its('statusText')
+        .should('equal', 'OK')  
+      cy.get('@retornoRequisicao')
+        .its('body')
+        .should('include', 'CAC TAT') 
+    })
+
+    it('encontrar gato invisível', () => {
+      cy.get('#cat')
+      .should('not.be.visible')
+      .invoke('show')
+      .should('be.visible')
+    })
 })
