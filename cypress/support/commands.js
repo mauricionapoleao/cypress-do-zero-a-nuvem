@@ -39,6 +39,10 @@
         cy.get('.success').should('be.visible', 'Mensagem enviada com sucesso.')
     })
 
+    Cypress.Commands.add('checkSuccessMessageNotVisible', () => {
+        cy.get('.success').should('not.be.visible', 'Mensagem enviada com sucesso.')
+    })
+
     Cypress.Commands.add('fillKeyFields', (firstName, lastName, email, phone, textArea) => {                                   
         cy.get('#firstName').type(firstName)
         cy.get('#lastName').type(lastName)
